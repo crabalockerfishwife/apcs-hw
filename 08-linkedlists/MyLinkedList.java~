@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class MyLinkedList{
+
+    private Node head;
+    
+    private MyLinkedList(){//dont even need
+	head = null;//by default
+    }
+
+    private String toString(){
+	return ""+head;
+    }
+
+
+
+
+
+
+}

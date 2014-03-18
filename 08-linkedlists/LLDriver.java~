@@ -1,0 +1,12 @@
+import java.io.*;
+import java.util.*;
+
+public class LLDriver{
+
+    public static void main (String[] args){
+	MyLinkedList L = new MyLinkedList();
+	System.out.println(L);
+	
+
+    }
+}
