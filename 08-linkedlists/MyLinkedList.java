@@ -7,46 +7,79 @@ public class MyLinkedList{
     //i = i+1 ... tmp = tmp.getNext
 
     private Node head;
-    private int size;
     
     public MyLinkedList(){//dont even need
 	head = null;//by default
-	size = 1;
     }
 
     public void add(String d){//0
 	Node tmp = new Node(d);
-	for (int i =0; i<size; i++){
-	    tmp.setNext(head); //you must do this first
-	}
+        tmp.setNext(head); //you must do this first
 	head = tmp; //you must do this second
-	size++;
     }
 
     public String toString(){//1
-	String s = ""+head;
-	for (int i = 1; i<size; i++){
-	    s+=" "+head.getNext();
-	}
-	return s;
+        return ""+head;
     }
 
     public void add(int i, String s){//2
-	try {
-	    for (int i2=i; i2<size; i2++){
-		Node tmp = new Node(s);
-		tmp.setNext(head);
-		head = tmp;
-	    }
-	    size++;
-	}catch (Exception e){
-	    System.out.println("Error: trying to add past end");
+	try{
+	Node tmp = head;
+	Node n = new Node(s);
+	for (int j = 0; j!=i; j++){
+	    tmp = tmp.getNext();
 	}
-
+	n.setNext(tmp.getNext());
+	tmp.setNext(n);
+	}catch(NullPointerException e){
+	    System.out.println("Null Exception Whoops");
+	}
     }
 
+    public String get(int i){//3
+	Node tmp = head;
+	for (int j = 0; j!=i; j++){
+	    tmp = tmp.getNext();
+	}
+	return tmp.getData();        	
+    }
 
+    public String set(int i, String s){//4
+	Node tmp = head;
+	for (int j=0; j!=i; j++){
+	    tmp = tmp.getNext();
+	}
+	String output = tmp.getData();
+	tmp.setData(s);
+	return output;
+    }
 
+    public String remove(int i){//5
+	Node tmp = head;
+	if (i == 0) {
+	    head = head.getNext();
+	}
+	for (int j=0; j!=(i-1); j++){
+	    tmp = tmp.getNext();
+	}
+	String output = tmp.getNext().getData();
+	tmp.setNext(tmp.getNext().getNext());
+	return output;
+    }
+
+    public int find(String s){//6
+	//wasnt sure how to do this one
+        return 0;
+    }
+
+    public int length(){//7
+	Node tmp = head;
+	int i = 0;
+	for (; tmp!=null;i++){
+	    tmp = tmp.getNext();
+	}
+	return i;
+    }
 
 
 }
