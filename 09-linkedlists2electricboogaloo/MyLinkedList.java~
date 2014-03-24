@@ -9,7 +9,7 @@ public class MyLinkedList{
     private Node head;
     
     public MyLinkedList(){//dont even need
-	head = null;//by default
+	head = new Node("0");//dummy node
     }
 
     public void add(String d){//0
@@ -68,8 +68,17 @@ public class MyLinkedList{
     }
 
     public int find(String s){//6
-	//wasnt sure how to do this one
-        return 0;
+	Node temp = head;
+	int pos = 0;
+        while (temp != null){
+	    if (temp.getData().equals(s)){
+		return pos;
+	    }else{
+		pos++;
+		temp = temp.getNext();
+	    }
+	}
+	return -1;
     }
 
     public int length(){//7

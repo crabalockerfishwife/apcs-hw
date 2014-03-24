@@ -9,44 +9,50 @@ public class MyLinkedList{
     private Node head;
     
     public MyLinkedList(){//dont even need
-	head = new Node("0");//dummy node
+	head = new Node("");//dummy node
     }
 
     public void add(String d){//0
 	Node tmp = new Node(d);
-        tmp.setNext(head); //you must do this first
-	head = tmp; //you must do this second
+        tmp.setNext(head.getNext()); //you must do this first
+	head.setNext(tmp); //you must do this second
     }
 
     public String toString(){//1
-        return ""+head;
+        String s = "";
+	Node temp = head.getNext();
+	while (temp != null) {
+	    s = s + temp + " ";
+	    temp = temp.getNext();
+	}
+	return s;
     }
 
     public void add(int i, String s){//2
 	try{
-	Node tmp = head;
-	Node n = new Node(s);
-	for (int j = 0; j!=i; j++){
-	    tmp = tmp.getNext();
-	}
-	n.setNext(tmp.getNext());
-	tmp.setNext(n);
+	    Node tmp = head.getNext();
+	    Node n = new Node(s);
+	    for (int j = 0; j!=i-1; j++){
+		tmp = tmp.getNext();
+	    }
+	    n.setNext(tmp.getNext());
+	    tmp.setNext(n);
 	}catch(NullPointerException e){
 	    System.out.println("Null Exception Whoops");
 	}
     }
 
     public String get(int i){//3
-	Node tmp = head;
-	for (int j = 0; j!=i; j++){
+	Node tmp = head.getNext();
+	for (int j = 0; j<i; j++){
 	    tmp = tmp.getNext();
 	}
 	return tmp.getData();        	
     }
 
     public String set(int i, String s){//4
-	Node tmp = head;
-	for (int j=0; j!=i; j++){
+	Node tmp = head.getNext();
+	for (int j=0; j<i; j++){
 	    tmp = tmp.getNext();
 	}
 	String output = tmp.getData();
@@ -55,11 +61,11 @@ public class MyLinkedList{
     }
 
     public String remove(int i){//5
-	Node tmp = head;
+	Node tmp = head.getNext();
 	if (i == 0) {
 	    head = head.getNext();
 	}
-	for (int j=0; j!=(i-1); j++){
+	for (int j=0; j<(i-1); j++){
 	    tmp = tmp.getNext();
 	}
 	String output = tmp.getNext().getData();
@@ -68,7 +74,7 @@ public class MyLinkedList{
     }
 
     public int find(String s){//6
-	Node temp = head;
+	Node temp = head.getNext();
 	int pos = 0;
         while (temp != null){
 	    if (temp.getData().equals(s)){
