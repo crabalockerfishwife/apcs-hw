@@ -3,19 +3,34 @@ import java.util.*;
 
 public class MyLinkedList{
 
+    //pair programming with stanley
+    
     //notes
     //i = i+1 ... tmp = tmp.getNext
 
     private Node head;
+    private Node tail;
     
     public MyLinkedList(){//dont even need
 	head = new Node("");//dummy node
+	tail = new Node("");
+ 	head.setNext(tail);
     }
 
     public void add(String d){//0
-	Node tmp = new Node(d);
-        tmp.setNext(head.getNext()); //you must do this first
-	head.setNext(tmp); //you must do this second
+	if(head.toString().equals("")){
+ 	    //Node tmp = new Node(d);
+ 	    //tmp.setNext(head); // you must do this first
+ 	    head.setData(d); // you must do this second
+ 	}
+ 	else if(tail.toString().equals("")){
+ 	    tail.setData(d);
+ 	}
+ 	else{
+ 	    Node tmp = new Node(d);
+ 	    tail.setNext(tmp);
+ 	    tail = tail.getNext();
+	}
     }
 
     public String toString(){//1
