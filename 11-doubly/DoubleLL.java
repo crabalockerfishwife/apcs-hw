@@ -1,3 +1,6 @@
+//nathaniel/tim and i worked together pd3
+//couldn't quite figure this one out...we determined something was up with the insert routine and tried to fix it without luck
+
 import java.io.*;
 import java.util.*;
 
