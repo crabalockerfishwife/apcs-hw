@@ -46,13 +46,22 @@ public class DoubleLL<E>{
 	Node<E> n = new Node<E>(d);
 	if (current==null){
 	    current=n;
+	    current.setNext(n);
+	    current.setPrev(n);
 	}
-	else{
+	else if(current.getPrev() == null){
 	    n.next=current;
-	    n.prev=current.prev;
-	    current.prev.setNext(n);
+	    n.setPrev(current.getPrev());
+	    current.getPrev().setNext(n);
 	    current.setPrev(n);
 	    current=n;
+	}
+	else{
+	    n.setNext(current);
+	    n.setPrev(current.getPrev());
+	    current.getPrev().setNext(n);
+	    current.setPrev(n);
+	    current = n;
 	}
     }
     
@@ -73,14 +82,15 @@ public class DoubleLL<E>{
     public String toString(){
 	if (current==null)
 	    return "";
-	while (current.getPrev()!=null)
-	    current = current.getPrev();
 	Node<E> tmp = current;
+	while (tmp.getPrev()!=current)
+	    tmp = tmp.getPrev();
 	String s = "";
-	while (tmp!=null){
+	while (tmp!=current){
 	    s = s+tmp.getData()+" ";
 	    tmp=tmp.getNext();
 	}
+	s = s+current.getData()+"";
 	return s;
     }
 
