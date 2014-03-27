@@ -23,7 +23,7 @@ public class DoubleLL<E>{
 	    return data;
 	}
 	
-	public void setNext(Node<E> n){
+	public void setData(Node<E> n){
 	    next = n;
 	}
 
@@ -49,9 +49,7 @@ public class DoubleLL<E>{
 	}
 	else{
 	    n.next=current;
-	    n.prev=current.prev;
-	    current.prev.setNext(n);
-	    current.setPrev(n);
+	    current.prev=n;
 	    current=n;
 	}
     }
@@ -95,15 +93,6 @@ public class DoubleLL<E>{
 	System.out.println(L);
 
 	//stop
-	System.out.println();
-
-	System.out.println(L.getCurrent());
-	L.forward();
-	System.out.println(L.getCurrent());
-	L.insert("inserted");
-	System.out.println(L);
-
-	//stop2
 
     }
 }
