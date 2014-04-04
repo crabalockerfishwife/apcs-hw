@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+public class MyStack{
+
+    //construvtor 1
+
+    //push 2
+
+    //pop
+
+    //peek
+
+    //isempty
+
+    //toString 3
+
+}
