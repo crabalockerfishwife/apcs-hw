@@ -8,7 +8,7 @@ public class Stack{
 
     public Stack(){//constructor;
 	Stack = new String[10];
-	top = Stack.length-1;
+	top = 0;
     }
     
     /*public boolean isEmpty(){
@@ -16,13 +16,14 @@ public class Stack{
 	}*/
 
     public void push(String s){
-	if (Stack[top] == null){
+	if (Stack[top].equals(null)){
 	    Stack[top] = s;
 	}
-	else if (top == 0)
-	    grow();
-	top--;
-	Stack[top] = s;
+	else{
+	    Stack[top+1] = s;
+	    top++;
+	}
+    
     }
 
     public String pop(){
@@ -35,13 +36,13 @@ public class Stack{
 	return Stack[top];
     }
 
-     public void grow(){
+    /*public void grow(){
 	String[] temp = new String[Stack.length+1];
 	for (int i=0;i<Stack.length;i++)
 	    temp[i+1] = Stack[i];
 	Stack = temp;
 	top+=1;
-     }
+	}*/
 
     public String toString(){//toString
 	String s = "";

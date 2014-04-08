@@ -1,90 +1,68 @@
 import java.io.*;
 import java.util.*;
 
-public class RPN{
+public class RPN {
+	MyStack stack;
 
-    private String[] Stack;
-    private int top;
-
-    public RPN(){//constructor;
-	Stack = new String[10];
-	top = Stack.length-1;
-    }
-    
-    /*public boolean isEmpty(){
-      return Stack[top]==null;
-      }*/
-
-    public void push(String s){
-	if (Stack[top] == null){
-	    Stack[top] = s;
+	public RPN() {
+		stack = new MyStack();
+		run();
 	}
-	else if (top == 0)
-	    grow();
-	top--;
-	Stack[top] = s;
-    }
 
-    public String pop(){
-	String s = Stack[top];
-	top++;
-	return s;
-    }
-
-    public String peek(){
-	return Stack[top];
-    }
-
-    public void grow(){
-	String[] temp = new String[Stack.length+1];
-	for (int i=0;i<Stack.length;i++)
-	    temp[i+1] = Stack[i];
-	Stack = temp;
-	top+=1;
-    }
-
-    public String toString(){//toString
-	String s = "";
-	for (int i=0;i<Stack.length;i++){
-	    s+=i+": "+Stack[i]+", ";
+	private boolean isNumber(String s) {
+		try {
+			double d = Double.parseDouble(s);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true; 
 	}
-	s+="\ntop: "+top;
-	return s;
-    }
 
-    public String evaluate(String s){//it doesnt work blahhhhhh
-	String ans = "";
-	String[] inputs = s.split(" ");
-	for (int i =0;i<inputs.length;i++){
-	    System.out.println(Stack.toString());
-	    if (s=="+"||s=="-"||s=="*"||s=="/"){//not all the operators blah
-	        ans+=pop();
-	    }
-	    else{
-		push(s);
-	    }
+	private boolean isOperator(String s) {
+		String[] operators = {
+			"+", "-", "*", "/"
+		};
+		for (String operator : operators) {
+			if (s.equals(operator)) {
+				return true;
+			}
+		}
+		return false;
 	}
-	return ans;
 
-    }
+	public void run() {
+		System.out.println("Starting.");
+		Scanner sc = new Scanner(System.in);
+		String thisLine = sc.nextLine();
+		while (!(thisLine.contains("quit"))) {	
 
-    public static void main(String[] args){//Driver
-	RPN r = new RPN();
-	Scanner sc = new Scanner(System.in);
-	try{
-	    Thread.sleep(1000);
-	}catch(Exception e){}
-	System.out.println("Enter expression to be evaluated (in postfix notation; for example 3 5 +)");
-	String s = sc.nextLine();
-	try{
-	    Thread.sleep(1000);
-	}catch(Exception e){}
-	System.out.println("Entered: " +s);
-	try{
-	    Thread.sleep(1000);
-	    System.out.println("Computing...");
-	    Thread.sleep(3000);
-	}catch(Exception e){}
-	System.out.println("Output: " +r.evaluate(s));
-    }
+			if (isNumber(thisLine)) {
+				stack.push(thisLine);
+			} else if (isOperator(thisLine)) {
+				try {
+					double itemTwo = Double.parseDouble(stack.pop());
+					double itemOne = Double.parseDouble(stack.pop());
+					double result;
+					switch (thisLine) {
+						case "+":	result = itemOne + itemTwo; break;
+						case "-":	result = itemOne - itemTwo; break;
+						case "*":	result = itemOne * itemTwo; break;
+						case "/":	result = itemOne / itemTwo; break;
+						default:	result = 0;					break;
+					}
+					String stringedResult = result + ""; 
+					stack.push(stringedResult);
+				} catch (NullPointerException e) {
+					System.out.println("Error: Not enough arguments in stack.");
+				}
+			} else if (thisLine.equals("clear")) {
+				stack = new MyStack();
+			} else {
+				System.out.println("Command not recognized.");
+			}
+			System.out.println(stack);
+			thisLine = sc.nextLine();
+		}
+		System.out.println("Terminated.");
+	}
 }

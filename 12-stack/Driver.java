@@ -13,12 +13,12 @@ public class Driver{
 	/*while (!stack.isEmpty()){
 	    System.out.println(stack.pop());
 	    }*/
-	stack.push("hello");
+	/*stack.push("hello");
 	System.out.println(stack.peek());
 	stack.push("world");
 	System.out.println(stack.peek());
 	System.out.println(stack.pop());
-	System.out.println(stack.peek());
+	System.out.println(stack.peek());*/
 
     }
 }
