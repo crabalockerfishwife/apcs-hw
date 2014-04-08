@@ -1,10 +1,14 @@
+//i got like all of this from elvin
+import java.io.*;
+import java.util.*;
+
 public class MyStack {
-	private String[] l; // The backend array 
+	private String[] stack; // The backend array 
 	private int top; /* Index of the highest item in the stack; if this is 0,				   * then the stack is empty */
 	private int capacity;
 
 	public MyStack(){
-		l = new String[10]; 
+		stack = new String[10]; 
 		top = 0; // indicates empty array; popping gives null
 		capacity = 10; 
 	}
@@ -15,26 +19,26 @@ public class MyStack {
 		capacity = capacity + 10; 
 		String[] newArray = new String[capacity];
 
-		for (int i = 0; i < l.length; i++) {
-			newArray[i] = l[i];  
+		for (int i = 0; i < stack.length; i++) {
+			newArray[i] = stack[i];  
 		}
 
-		l = newArray; 
+		stack = newArray; 
 	}
 
 	public void push(String s){
 		try {
-			l[top + 1] = s; 
+			stack[top + 1] = s; 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			increaseCapacity(); 
-			l[top + 1] = s; 
+			stack[top + 1] = s; 
 		}
 		top = top + 1;
 	}
 
 	public String pop() {
-		String popped = l[top];
-		l[top] = null;
+		String popped = stack[top];
+		stack[top] = null;
 		top = top - 1;
 		if (top < 0) { // Handle the "popping an empty stack" case 
 			top = 0;
@@ -43,7 +47,7 @@ public class MyStack {
 	}
 
 	public String peek() {
-		String peeked = l[top];
+		String peeked = stack[top];
 		return peeked; 
 	}
 
@@ -55,15 +59,22 @@ public class MyStack {
 		return (top != 0); 
 	}
 	public String toString() {
-		String result = new String("{"); 
+		String result = ""; 
 		for (int i = 1; i <= top; i++) {
-			result += l[i];
+			result += stack[i];
 			if (i != top) {
 				result += ", ";
 			}
 		}
-		result += "}";
+		result += " ";
 		return result;
 	}
 
+    public static void main (String[] args){//added this driver
+	MyStack ms = new MyStack();
+	System.out.println(ms);
+	ms.push("lol");
+	ms.push("hehe");
+	System.out.println(ms);    
+    }
 }
