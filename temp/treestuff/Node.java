@@ -1,6 +1,3 @@
-/*
-copied and pasted linked list node
- */
 import java.io.*;
 import java.util.*;
 
@@ -15,20 +12,28 @@ public class Node{
 	right = null;
     }
 
-    public void setData(String d){
+    public void setData(int d){
 	data = d;
     }
 
-    public String getData(){
+    public int getData(){
 	return data;
     }
 
-    public void setNext(Node n){
-	next = n;
+    public void setLeft(Node n){
+	left = n;
     }
 
-    public Node getNext(){
-	return next;
+    public void setRight(Node n){
+	right = n;
+    }
+
+    public Node getLeft(){
+	return left;
+    }
+
+    public Node getRight(){
+	return right;
     }
 
     public String toString(){

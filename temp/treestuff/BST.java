@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class BST{
+
+    private Node root;
+
+    public BST(){
+	root = null;
+    }
+
+    public String toString(){
+	return "idk";
+    }
+    public Node search(int x){
+	Node tmp = root;
+	while (tmp!=null&&tmp.getData()!=x){
+	    if (x<tmp.getData()){
+		tmp = tmp.getLeft();
+	    }
+	    else{
+		tmp = tmp.getRight();
+	    }
+	}
+	return tmp;
+    }
+
+    public void insert(int x){
+	
+    }
+    
+}
