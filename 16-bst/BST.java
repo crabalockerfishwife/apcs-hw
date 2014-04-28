@@ -70,6 +70,21 @@ public class BST{
 	    return search2(c.getRight(),x);
 	}
     }
+
+    /* 
+       DELETE
+       1.we need a pointer to the node & to the node's parent (piggyback or use recursion
+       2. 3 cases
+       //a. node is a leaf --> point to left or right of the parent (as appropriate) to null
+       //b. node has 1 child --> point to left or right of the parent (as appropriate) to the node's non-null child
+       //a&b can be combined!
+       //c.2 kids
+       //1. find largest value on node's left subtree --> go left once then as far right as we can (or smallest on right)
+       //2. copy that value over
+       //3. recursively delete that value pretending the deletion node is the root
+       //4.copy the value to replace the node to delete
+
+       */
     
     
 }
