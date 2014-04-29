@@ -14,17 +14,20 @@ public class BST{
 
     /* toString is still flawed, seems to only work with the tree i have in the driver*/
     public String toString(){
-	return toString(root);
+	return toString(root, false);
     }
 
-    public String toString(Node n){
-	String s ="";
+    public String toString(Node n, boolean leftmost){
+	String s ="   ";
+	if (leftmost==true){
+	    s+="\n";
+	}
 	s+="|"+n.toString()+"|";
 	if (n.getLeft()!=null){
-	    s+="\n"+toString(n.getLeft());
+	    s+=toString(n.getLeft(), true);
 	}
 	if (n.getRight()!=null){
-	    s+=toString(n.getRight());
+	    s+=toString(n.getRight(), false);
 	}
 	return s;
     }

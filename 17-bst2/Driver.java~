@@ -12,7 +12,7 @@ public class Driver{
 	System.out.println("\nSearch functions:\n");
 	System.out.println(b.search(5).toString());
 	System.out.println(b.search2(b.getRoot(),5).toString());
-        b.delete(5);
+        //b.delete(5);
     }
 
 }
