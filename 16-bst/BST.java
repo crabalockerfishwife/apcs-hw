@@ -20,13 +20,13 @@ public class BST{
     public String toString(Node n, String type){//helper function
 	/*as you can see, i tried to make a toString method. at the moment it..........seems to only work for the tree i created in the driver :P*/
 	String s = "";	
-	for (int i=0;i<=height-1&&n!=null;i++){
+	//for (int i=0;i<=height-1&&n!=null;i++){
 	    if (type.equals("left")){
 		s+="\n";}
 	    s+=n.toString();
 		s+=toString(n.getLeft(),"left");
 		s+=toString(n.getRight(),"right");
-	}
+		//}
 	return s;
     }
 
@@ -103,8 +103,8 @@ public class BST{
 
        */
     
-    public void delete (int x){/* bad code bad code bad code incomplete incomplete*/
-        Node tmp = search(x);
+    public void delete (int x){//bad code bad code bad code incomplete incomplete
+    Node tmp = search(x);
 	Node parent = tmp.getParent();//i do realize this method does not exist
 	if (Node has zero children || Node has one child){
 	    if (x<tmp.getData()&&tmp.getLeft()!=null){
