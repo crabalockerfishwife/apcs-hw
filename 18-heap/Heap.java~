@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Heaps{
+
+    public int[] myHeap;
+
+    public String toString(){
+	String s ="";
+	for (int i=0;i<myHeap.length();i++){
+	    s+=" "+myHeap[i];
+	}
+	return s;
+    }
+
+    public static void main (String[] args){
+	Heaps h = new Heaps();
+	
+	
+    }
+
+
+
+}
+

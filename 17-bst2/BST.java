@@ -11,7 +11,7 @@ public class BST{
 	root = null;
     }
 
-
+    
     /* toString is still flawed, seems to only work with the tree i have in the driver*/
     public String toString(){
 	return toString(root, true);
