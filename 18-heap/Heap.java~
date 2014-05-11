@@ -1,20 +1,59 @@
 import java.io.*;
 import java.util.*;
 
-public class Heaps{
+public class Heap{
 
-    public int[] myHeap;
+    //maxheap;
+
+    public int[] myHeap = new int[10]; /* default size 10 */
+    public int[] mySortArray = {1,2,6,3,7,9};
+
+    public Heap(){
+	myHeap[0]=0;
+    }
+
+    public int findMax(){
+	return myHeap[1];
+    }
+
+    public void insert(int x){ //still slightly flawed :P;
+	myHeap[0]+=1;
+	myHeap[myHeap[0]] = x;//lowest leftest;
+	if (x<myHeap[myHeap[0]/2]){//already at correct position
+	    return;
+	}
+	else
+	    swap(myHeap[0], myHeap[0]/2);
+    }
+
+    public void swap(int a, int b){//numbers refer to positions not values;
+	if (a==0||b==0)//base case;
+	    return;
+	int tmp = myHeap[b];
+	myHeap[b] = myHeap[a];
+	myHeap[a] = tmp;
+	swap(b,b/2);
+    }
 
     public String toString(){
-	String s ="";
-	for (int i=0;i<myHeap.length();i++){
-	    s+=" "+myHeap[i];
+	String s ="length: "+myHeap[0]+"\n";
+	for (int i=1;i<myHeap.length;i++){
+	    s+=" "+i+": "+myHeap[i]+",";
 	}
-	return s;
+	return s.substring(0,s.length()-1)+"\n";
     }
 
     public static void main (String[] args){
-	Heaps h = new Heaps();
+	Heap h = new Heap();
+
+	/*System.out.println(h.toString());
+	h.insert(16);
+	System.out.println(h.toString());
+	h.insert(18);
+	System.out.println(h.toString());
+	h.insert(22);
+	System.out.println(h.toString());*/
+
 	
 	
     }
