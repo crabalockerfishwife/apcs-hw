@@ -5,14 +5,10 @@ public class Heap{
 
     /*problems getting the HeapSort to fully work T_T*/
 
-
-    public int[] myHeap = new int[10]; /* default size 10 */
-    public int length;
     //arbitrary array that needs sorting:
-    public int[] mySortArray = {15,19,10,7,17,16};
+    public int[] myHeap = {15,19,10,7,17,16};
 
     public Heap(){
-	length=0;
     }
 
     public int findMax(){
@@ -20,55 +16,34 @@ public class Heap{
     }
 
     public void insert(int x){ //still slightly flawed :P;
-	length+=1;
-	myHeap[length] = x;//lowest leftest;
-	if (x<myHeap[length/2]){//already at correct position
+	myHeap[myHeap.length] = x;//lowest leftest;
+	if (x<myHeap[myHeap.length/2]){//already at correct position
 	    return;
 	}
 	else
-	    swap(length, length/2);
+	    swap(myHeap.length, myHeap.length/2);
     }
 
-    public void swap(int a, int b){//numbers refer to positions not values;
-	/*if (myHeap[a]<myHeap[b]||a==0||b==0)//base case;
-	  return;*/
-	int tmp = myHeap[b];
-	myHeap[b] = myHeap[a];
-	myHeap[a] = tmp;
-	//swap(b,b/2);
-    }
-
-    public void HeapSort(){//it doesn't work ahhhhhhh;
-	for (int i=mySortArray.length/2;i>0;i--){
-	    if (i==1&&mySortArray[i]>mySortArray[i+2]){
-		HeapSwap(i-1,i);
-	    }
-	    else if (i==1&&mySortArray[i]<mySortArray[i+2]){
-		HeapSwap(i-1,i+1);
-	    }
-	    if (mySortArray[i-1]<mySortArray[(i*2)-1])
-		HeapSwap((i*2)-1,i-1);
-	    else if (mySortArray[i-1]<mySortArray[(i*2)])
-		HeapSwap((i*2),i-1);
+    public void HeapSort(){//it doesn't work ahhhhhhh [problems when multiple iterations needed];
+	for (int i=myHeap.length/2;i>0;i--){
+	    if (myHeap[i-1]<myHeap[(i*2)-1])
+		swap((i*2)-1,i-1);
+	    else if (myHeap[i-1]<myHeap[(i*2)])
+		swap((i*2),i-1);
 		
 	}
     }
 
-    public void HeapSwap(int a, int b){//numbers refer to positions not values;
-	int tmp = mySortArray[b];
-	mySortArray[b] = mySortArray[a];
-        mySortArray[a] = tmp;
+    public void swap(int a, int b){//numbers refer to positions not values;
+	int tmp = myHeap[b];
+	myHeap[b] = myHeap[a];
+        myHeap[a] = tmp;
     }
 
     public String toString(){
-	/*String s ="length: "+length+"\n";
-	for (int i=0;i<myHeap.length;i++){
-	    s+=" "+i+": "+myHeap[i]+",";
-	}
-	return s.substring(0,s.length()-1)+"\n";*/
 	String s="";
-	for (int i=0;i<mySortArray.length;i++){
-	    s+=" "+i+": "+mySortArray[i]+",";
+	for (int i=0;i<myHeap.length;i++){
+	    s+=" "+(i+1)+": "+myHeap[i]+",";
 	}
 	return s.substring(0,s.length()-1)+"\n";
     }
