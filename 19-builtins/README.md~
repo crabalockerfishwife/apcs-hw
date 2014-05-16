@@ -2,11 +2,13 @@
 a use point of view?</b>
 
 	A Treemap has two type parameters: K (the type of keys maintained by the map), and V (the type of mapped values), while a 
-Treeset has one: E (the type of elements maintained by the set). Treemap implements NavigableMap<K,V> while Treeset implements NavigableSet<E> based on a TreeMap.
+Treeset has one: E (the type of elements maintained by the set). Treemap implements NavigableMap(K,V) while Treeset implements NavigableSet(E) based on a TreeMap.
+	<br>
 	The key difference between the two, however, seems to be that, in the TreeMap, all Map.Entry pairs returned by methods in the class represent <i>snapshots</i> of mappings at the time they were produced, and do <i>not</i> support the Entry.setValue method.
+	<br>
 	via 
-		http://docs.oracle.com/javase/6/docs/api/java/util/TreeMap.html
-		http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html
+		<a href="http://docs.oracle.com/javase/6/docs/api/java/util/TreeMap.html">this</a>
+		<a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html">and this</a>
 		
 <b>2. Internally, how is a HashMap implemented? Internally, how is a TreeMap implemented?</b>
 
