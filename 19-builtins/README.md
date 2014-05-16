@@ -1,6 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>	
+<p>
 <b>1. What is the difference between the HashMap and HashSet (or the TreeMap and TreeSet) from
 a use point of view?</b>
-
+	</p>
 	<p> 
 	A Treemap has two type parameters: K (the type of keys maintained by the map), and V (the type of mapped values), while a 
 Treeset has one: E (the type of elements maintained by the set). Treemap implements NavigableMap(K,V) while Treeset implements NavigableSet(E) based on a TreeMap.
@@ -34,3 +38,6 @@ Treeset has one: E (the type of elements maintained by the set). Treemap impleme
 <b>4. Java has a built in Heap data structure but it's not named Heap. What is it?</b>
 
 <b>5. Implement the running median algorithm/data structure we defined in class using the built in heap.</b>
+
+</body>
+</html>
