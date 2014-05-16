@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html>
 <body>	
-<p>
+<h>
 <b>1. What is the difference between the HashMap and HashSet (or the TreeMap and TreeSet) from
 a use point of view?</b>
-	</p>
+	</h>
 	<p> 
 	A Treemap has two type parameters: K (the type of keys maintained by the map), and V (the type of mapped values), while a 
 Treeset has one: E (the type of elements maintained by the set). Treemap implements NavigableMap(K,V) while Treeset implements NavigableSet(E) based on a TreeMap.
