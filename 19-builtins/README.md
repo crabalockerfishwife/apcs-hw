@@ -1,6 +1,7 @@
 <html>
 <body>	
 <h>
+
 <b>1. What is the difference between the HashMap and HashSet (or the TreeMap and TreeSet) from
 a use point of view?</b>
 	</h>
@@ -17,8 +18,7 @@ Treeset has one: E (the type of elements maintained by the set). Treemap impleme
 		<a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html">and this</a>
 	</p>
 		
-<h><b>2. Internally, how is a HashMap implemented? Internally, how is a TreeMap implemented?<b/></h>
-
+<h><b>2. Internally, how is a HashMap implemented? Internally, how is a TreeMap implemented?</b></h>
 	<p>
 	A HashMap is a hash table based implementation of the Map interface, and its implementation is affected by its initial capacity and load factor.
 	</p>

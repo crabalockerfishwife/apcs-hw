@@ -17,8 +17,7 @@ Treeset has one: E (the type of elements maintained by the set). Treemap impleme
 		<a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html">and this</a>
 	</p>
 		
-<b>2. Internally, how is a HashMap implemented? Internally, how is a TreeMap implemented?</b>
-
+<h><b>2. Internally, how is a HashMap implemented? Internally, how is a TreeMap implemented?</b></h>
 	<p>
 	A HashMap is a hash table based implementation of the Map interface, and its implementation is affected by its initial capacity and load factor.
 	</p>
@@ -31,12 +30,12 @@ Treeset has one: E (the type of elements maintained by the set). Treemap impleme
 		<a href="http://docs.oracle.com/javase/6/docs/api/java/util/TreeMap.html">and this</a>
 	</p>
 
-<b>3. Write code to try to do a speed comparison between HashMaps and TreeMaps. Summarize what you find in the README file.</b>
+<h><b>3. Write code to try to do a speed comparison between HashMaps and TreeMaps. Summarize what you find in the README file.</h></b>
 
 
-<b>4. Java has a built in Heap data structure but it's not named Heap. What is it?</b>
+<h><b>4. Java has a built in Heap data structure but it's not named Heap. What is it?</h></b>
 
-<b>5. Implement the running median algorithm/data structure we defined in class using the built in heap.</b>
+<h><b>5. Implement the running median algorithm/data structure we defined in class using the built in heap.</h></b>
 
 </body>
 </html>
