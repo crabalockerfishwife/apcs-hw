@@ -1,4 +1,7 @@
 <html>
+<head>
+<b>Questions 1 and 2 answered by Fish Milnikiewicz, questions 3,4 and 5 answered by Elvin Shoyfer</b>
+</head>
 <body>	
 <h>
 
