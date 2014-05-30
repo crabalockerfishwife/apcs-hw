@@ -19,7 +19,7 @@ public class ChoresQ{
         }
 	System.out.println(input);
 	/* write new file */
-	File output = new File("DIGIT.OUT.txt");
+	File output = new File("CHORE.OUT.txt");
 	FileWriter fWriter = new FileWriter(output);
 	PrintWriter pWriter = new PrintWriter(fWriter);
 	pWriter.println(compute(input));
@@ -27,25 +27,44 @@ public class ChoresQ{
     }
 
     public int compute(String s){
-	int output =0; //will be most efficient time to perform chores;
+	int time=0; //will be most efficient time to perform chores;
 	String[] inputlines = s.split("\n");
 	int[][] data = new int[inputlines.length][102];
 	for (int r=0;r<inputlines.length;r++){
-	    int countdown=inputlines[r].length();
-	    for (int c=0;countdown>0;){
-		//try{
+	    int k=0;
+	    for (int c=0;c<inputlines[r].length();c++){
+		try{
 		    if (!(inputlines[r].substring(c,c+1)).equals(" ")){
-			    data[r][c] = Integer.parseInt(inputlines[r].substring(c,c+1));
-			    c++;
+			data[r][k] = Integer.parseInt(inputlines[r].substring(c,c+1));
+			k++;
 		    }
-		    countdown--;
-		    //}catch(StringIndexOutOfBoundsException e){}
+		    }catch(StringIndexOutOfBoundsException e){}
 	    }
 	}
 	//2d array of data has been established;
-	System.out.println(data[2][2]);
-	
-	return output;
+	int done = 0;
+	int[] completed = {};
+	while (completed<inputlines.length()){
+	    for (int r=1;r<inputlines.length();r++){
+		boolean cando = True;
+		for (c=2;c<inputlines[r].length();c++){
+		    if !(data[r][c]==0 || Arrays.asList(completed).contains(data[r][c])){
+			    cando=False;
+			
+			}
+		    if (cando.equals(True)){
+			done++;
+			time+=data[r][1];
+			completed[r]=data[r][0];
+			  
+		    }
+		}
+
+		}
+	    //time+=data[1][1]; 
+	    }
+	}
+	return time;
 
     }
 
