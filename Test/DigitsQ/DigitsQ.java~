@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+
+public class DigitsQ{
+
+
+}
+
+
+public static void main (String[] args){
+    DigitsQ dq = new DigitsQ;
+    
+    
+
+}
